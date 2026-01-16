@@ -1,15 +1,15 @@
 import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { useUserStore } from '@/store/modules/user';
 import { getToken } from '@/utils/auth';
-import { tansParams, blobValidate } from '@/utils/scaffold';
+import { blobValidate, tansParams } from '@/utils/scaffold';
 import cache from '@/plugins/cache';
 import { HttpStatus } from '@/enums/RespEnum';
 import { errorCode } from '@/utils/errorCode';
 import { LoadingInstance } from 'element-plus/es/components/loading/src/loading';
 import FileSaver from 'file-saver';
 import { getLanguage } from '@/lang';
-import { encryptBase64, encryptWithAes, generateAesKey, decryptWithAes, decryptBase64 } from '@/utils/crypto';
-import { encrypt, decrypt } from '@/utils/jsencrypt';
+import { decryptBase64, decryptWithAes, encryptBase64, encryptWithAes, generateAesKey } from '@/utils/crypto';
+import { decrypt, encrypt } from '@/utils/jsencrypt';
 import router from '@/router';
 
 const encryptHeader = 'encrypt-key';
@@ -28,7 +28,11 @@ axios.defaults.headers['clientid'] = import.meta.env.VITE_APP_CLIENT_ID;
 // 创建 axios 实例
 const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
-  timeout: 50000
+  timeout: 50000,
+  transitional: {
+    // 超时错误更明确
+    clarifyTimeoutError: true
+  }
 });
 
 // 请求拦截器

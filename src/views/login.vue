@@ -56,7 +56,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2018-2025 infoq-scaffold All Rights Reserved.</span>
+      <span>Copyright © 2018-2026 Pontus All Rights Reserved.</span>
     </div>
   </div>
 </template>
@@ -157,6 +157,8 @@ const getCode = async () => {
   const { data } = res;
   captchaEnabled.value = data.captchaEnabled === undefined ? true : data.captchaEnabled;
   if (captchaEnabled.value) {
+    // 刷新验证码时清空输入框
+    loginForm.value.code = '';
     codeUrl.value = 'data:image/gif;base64,' + data.img;
     loginForm.value.uuid = data.uuid;
   }

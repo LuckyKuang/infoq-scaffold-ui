@@ -28,7 +28,9 @@
             <el-button v-hasPermi="['system:menu:add']" type="primary" plain icon="Plus" @click="handleAdd()">新增</el-button>
           </el-col>
           <el-col :span="1.5">
-            <el-button v-hasPermi="['system:menu:remove']" type="danger" plain icon="Delete" @click="handleCascadeDelete" :loading="deleteLoading">级联删除</el-button>
+            <el-button v-hasPermi="['system:menu:remove']" type="danger" plain icon="Delete" @click="handleCascadeDelete" :loading="deleteLoading"
+              >级联删除</el-button
+            >
           </el-col>
           <right-toolbar v-model:show-search="showSearch" @query-table="getList"></right-toolbar>
         </el-row>
@@ -250,6 +252,21 @@
                   {{ dict.label }}
                 </el-radio>
               </el-radio-group>
+            </el-form-item>
+          </el-col>
+          <el-col v-if="form.visible !== '0'" :span="12">
+            <el-form-item label="激活路径" prop="form.remark">
+              <template #label>
+                <span>
+                  <el-tooltip content="隐藏菜单填写默认激活路由，比如激活父菜单的路由 /system/user" placement="top">
+                    <el-icon>
+                      <question-filled />
+                    </el-icon>
+                  </el-tooltip>
+                  激活路由
+                </span>
+              </template>
+              <el-input v-model="form.remark" placeholder="请输入激活路径" />
             </el-form-item>
           </el-col>
         </el-row>
