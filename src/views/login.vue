@@ -66,7 +66,6 @@ import { getCodeImg, getTenantList } from '@/api/login';
 import { useUserStore } from '@/store/modules/user';
 import { LoginData, TenantVO } from '@/api/types';
 import { to } from 'await-to-js';
-import { HttpStatus } from '@/enums/RespEnum';
 import { useI18n } from 'vue-i18n';
 
 const { proxy } = getCurrentInstance() as ComponentInternalInstance;
@@ -77,9 +76,9 @@ const router = useRouter();
 const { t } = useI18n();
 
 const loginForm = ref<LoginData>({
-  tenantId: '000000',
-  username: 'admin',
-  password: 'admin123',
+  tenantId: '',
+  username: '',
+  password: '',
   rememberMe: false,
   code: '',
   uuid: ''

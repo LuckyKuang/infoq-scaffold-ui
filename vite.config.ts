@@ -24,7 +24,10 @@ export default defineConfig(({ mode, command }) => {
       open: true,
       proxy: {
         [env.VITE_APP_BASE_API]: {
+          // 后端宿主机部署，前端填写localhost:8080
           target: 'http://localhost:8080',
+          // 后端Docker部署，前端填写后端Docker名称加端口
+          // target: 'http://infoq-scaffold:8080',
           changeOrigin: true,
           ws: true,
           rewrite: (path) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), '')
