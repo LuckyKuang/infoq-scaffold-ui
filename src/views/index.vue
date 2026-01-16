@@ -2,7 +2,7 @@
   <div class="app-container home">
     <el-row>
       <el-col style="padding-left: 20px">
-        <h2>多租户管理系统基础架构</h2>
+        <h2>infoq-scaffold多租户管理系统</h2>
       </el-col>
     </el-row>
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

@@ -5,14 +5,14 @@ import auth from '@/plugins/auth';
 import cache from '@/plugins/cache';
 import animate from '@/animate';
 import { useDict } from '@/utils/dict';
-import { handleTree, addDateRange, selectDictLabel, selectDictLabels, parseTime } from '@/utils/scaffold';
+import { addDateRange, handleTree, parseTime, selectDictLabel, selectDictLabels } from '@/utils/scaffold';
 import { getConfigKey, updateConfigByKey } from '@/api/system/config';
 import { download as rd } from '@/utils/request';
 import type { LanguageType } from '@/lang';
 
 export {};
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   interface ComponentCustomProperties {
     // 全局方法声明
     $modal: typeof modal;

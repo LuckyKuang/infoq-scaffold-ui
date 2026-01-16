@@ -99,3 +99,11 @@ export function syncTenantDict() {
     method: 'get'
   });
 }
+
+// 同步租户参数配置
+export function syncTenantConfig() {
+  return request({
+    url: '/system/tenant/syncTenantConfig',
+    method: 'get'
+  });
+}
