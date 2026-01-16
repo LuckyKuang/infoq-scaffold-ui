@@ -14,7 +14,6 @@ import directive from './directive';
 
 // 注册插件
 import plugins from './plugins/index'; // plugins
-
 // 高亮组件
 // import 'highlight.js/styles/a11y-light.css';
 import 'highlight.js/styles/atom-one-dark.css';
@@ -28,18 +27,22 @@ import ElementIcons from '@/plugins/svgicon';
 // permission control
 import './permission';
 
+// 开发者工具保护
+import { initDevToolsProtection } from '@/utils/devtools-protection';
+
 // 国际化
 import i18n from '@/lang/index';
 
 // vxeTable
 import VXETable from 'vxe-table';
 import 'vxe-table/lib/style.css';
+// 修改 el-dialog 默认点击遮照为不关闭
+import { ElDialog } from 'element-plus';
+
 VXETable.setConfig({
   zIndex: 999999
 });
 
-// 修改 el-dialog 默认点击遮照为不关闭
-import { ElDialog } from 'element-plus';
 ElDialog.props.closeOnClickModal.default = false;
 
 const app = createApp(App);
@@ -55,3 +58,6 @@ app.use(plugins);
 directive(app);
 
 app.mount('#app');
+
+// 初始化开发者工具保护（仅生产环境）
+initDevToolsProtection();

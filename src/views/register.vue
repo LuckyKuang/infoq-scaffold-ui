@@ -67,13 +67,13 @@
     </el-form>
     <!--  底部  -->
     <div class="el-register-footer">
-      <span>Copyright © 2018-2025 疯狂的狮子Li All Rights Reserved.</span>
+      <span>Copyright © 2018-2026 Pontus All Rights Reserved.</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { getCodeImg, register, getTenantList } from '@/api/login';
+import { getCodeImg, getTenantList, register } from '@/api/login';
 import { RegisterForm, TenantVO } from '@/api/types';
 import { to } from 'await-to-js';
 import { useI18n } from 'vue-i18n';
